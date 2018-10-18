@@ -1,11 +1,21 @@
 //=======================================
 //DOM selections
 const orderForm = document.querySelector('[data-form]');
+const orderComplete = document.querySelector('[data-completed]');
 
 
 //=======================================
 // Helper functions
 //=======================================
+// ask chris about not specifically referencing the 'data' arguement
+function orderCompleted(data){
+let newOrder = document.createElement('p')
+newOrder.textContent= `Your order of ${data.coffee} coffee has been processed`;
+orderComplete.appendChild(newOrder)
+// debugger;
+console.log(data.coffee);
+}
+
 
 function handleSubmit(event){
     event.preventDefault();
@@ -35,7 +45,9 @@ function handleSubmit(event){
         body: JSON.stringify(data)
 
     })
-
+        .then(r => r.json())
+        .then(orderCompleted(data))
+        .then(console.log)
 
 }
 
