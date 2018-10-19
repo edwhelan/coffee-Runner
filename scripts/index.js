@@ -67,7 +67,10 @@ function err() {
 }
 
 function getOrdersFromShop() {
-	fetch(`https://dc-coffeerun.herokuapp.com/api/coffeeOrders`).then((r) => r.json()).then(extractToDiv).catch(err);
+	fetch(`https://dc-coffeerun.herokuapp.com/api/coffeeOrders`)
+		.then((r) => r.json())
+		.then(extractToDiv)
+		.catch(err);
 }
 //take data fr
 function extractToDiv(data) {
@@ -76,7 +79,7 @@ function extractToDiv(data) {
 	// })
 	let pendingCoffeeOrders = Object.values(data);
 
-	pendingCoffeeOrders.forEach(function(aCoffeeOrder) {
+	pendingCoffeeOrders.forEach(function (aCoffeeOrder) {
 		putToOrderForm(
 			`Order: ${aCoffeeOrder.emailAddress}, ${aCoffeeOrder.coffee}, ${aCoffeeOrder.flavor}, ${aCoffeeOrder.strength}, ${aCoffeeOrder.size}: will be ready soon!`
 		);
