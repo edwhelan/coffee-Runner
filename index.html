@@ -8,7 +8,7 @@
     <title>coffeeRunner</title>
 </head>
 <body>
-	<h1>coffeeRunner</h1>
+	<h1>coffee<span>Runner</span></h1>
 	<form 
 						action="https://dc-coffeerun.herokuapp.com/api/coffeeOrders"
 						method="POST"
@@ -42,12 +42,18 @@
 
 <br>
 
-		<input type='submit'>
+		<input class="submit-button" type='submit'>
 
 	</form>
 
-	<div data-completed >
-		<!-- orders go here -->
+	<div class="data-completed" data-completed >
+		<!-- most recent orders go here -->
+	</div>
+
+	<div class="order-output">
+		<ul data-output >
+			<!-- orders go here -->
+		</ul>
 	</div>
 
     <script src="scripts/index.js"></script>
