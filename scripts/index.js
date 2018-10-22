@@ -40,13 +40,11 @@ function handleSubmit(event) {
 		method: method,
 		headers: {
 			'Content-Type': 'application/json; charset=utf-8'
-			// "Content-Type": "application/x-www-form-urlencoded",
 		},
 		body: JSON.stringify(data)
 	})
 		.then((r) => r.json())
 		.then(orderCompleted(data))
-		.then(console.log);
 }
 
 //=======================================
@@ -55,30 +53,27 @@ function handleSubmit(event) {
 orderForm.addEventListener('submit', handleSubmit);
 
 //+++++++++++++++++++++++++++++++++++++++
-// GET SECTION
+// GET COFFEE ORDER SECTION ----------------------
 //========================================
 // DOM selectors GET
 const outputElement = document.querySelector('[data-output]');
 
 //========================================
 //Order Helper functions
-function err() {
+function err() { //err for catch
 	console.log(`an Error has occurred BEEP BOOP`);
 }
 
-function getOrdersFromShop() {
+function getOrdersFromShop() { //get all the existing orders from server 
 	fetch(`https://dc-coffeerun.herokuapp.com/api/coffeeOrders`)
 		.then((r) => r.json())
 		.then(extractToDiv)
 		.catch(err);
 }
-//take data fr
-function extractToDiv(data) {
-	// let result = Object.keys(data).map(function (key){
-	//     return {[key]: data[key] };
-	// })
-	let pendingCoffeeOrders = Object.values(data);
 
+function extractToDiv(data) {
+	//draw to area
+	let pendingCoffeeOrders = Object.values(data);
 	pendingCoffeeOrders.forEach(function (aCoffeeOrder) {
 		putToOrderForm(
 			`Order: ${aCoffeeOrder.emailAddress}, ${aCoffeeOrder.coffee}, ${aCoffeeOrder.flavor}, ${aCoffeeOrder.strength}, ${aCoffeeOrder.size}: will be ready soon!`
@@ -94,5 +89,5 @@ function putToOrderForm(data) {
 }
 
 //========================================
-//Main Event Listeners GET
+//Main Event Listeners for GET
 getOrdersFromShop();

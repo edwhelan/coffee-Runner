@@ -1,21 +1,19 @@
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
-    <link rel="stylesheet" href="stylesheets/index.css">
-    <title>coffeeRunner</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+	<link rel="stylesheet" href="stylesheets/index.css">
+	<title>coffeeRunner</title>
 </head>
+
 <body>
 	<h1>coffee<span>Runner</span></h1>
-	<form 
-						action="https://dc-coffeerun.herokuapp.com/api/coffeeOrders"
-						method="POST"
-						data-form				
-		>
+	<form action="https://dc-coffeerun.herokuapp.com/api/coffeeOrders" method="POST" data-form>
 		<label>
-				Coffee:
+			Coffee:
 			<input type="text" name='coffee' placeholder="Black" value="black">
 		</label>
 		<br>
@@ -37,25 +35,26 @@
 		<br><br>
 		<label>
 			Strength:
-			<input type="number" name='strength' min="0" max="100" value='99' >
+			<input type="number" name='strength' min="0" max="100" value='99'>
 		</label>
 
-<br>
-
+		<br>
+		<!-- form for submitting coffee order to be put into server -->
 		<input class="submit-button" type='submit'>
 
 	</form>
 
-	<div class="data-completed" data-completed >
+	<div class="data-completed" data-completed>
 		<!-- most recent orders go here -->
 	</div>
 
 	<div class="order-output">
-		<ul data-output >
+		<ul data-output>
 			<!-- orders go here -->
 		</ul>
 	</div>
 
-    <script src="scripts/index.js"></script>
+	<script src="scripts/index.js"></script>
 </body>
+
 </html>
